@@ -1,4 +1,4 @@
-.input-field {
+.inputFieldCls {
   display: inline-block;
   padding-block-start: 1.4%;
   padding-block-end: 1.4%;
@@ -10,7 +10,7 @@
   width: 60vw;
 }
 
-.submit-button {
+.submitButtonCls {
   background-color: #35a50e;
   border: 0.5rem solid #35a50e;
   border-start-end-radius: 0.5rem;
@@ -18,7 +18,7 @@
 }
 
 @media (min-width: 768px) {
-  .input-field {
+  .inputFieldCls {
     width: 30vw;
     padding-block-start: 1.2%;
     padding-block-end: 1.2%;

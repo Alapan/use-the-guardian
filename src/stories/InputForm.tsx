@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import Search from './assets/search.svg';
-import './styles/inputform.css';
+import styles from './styles/inputform.module.css';
 
 interface InputFormProps {
   onSubmit: () => void;
@@ -13,9 +13,9 @@ const InputForm = ({ onSubmit }: InputFormProps) => {
       <input
         type='text'
         placeholder='Enter search text'
-        className='input-field'
+        className={styles.inputFieldCls}
       />
-      <button type='submit' className='submit-button'>
+      <button type={'submit'} className={styles.submitButtonCls}>
         <Image
           width={20}
           height={21}

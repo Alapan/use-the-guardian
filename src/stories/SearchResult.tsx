@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import './styles/searchresult.css';
+import styles from './styles/searchresult.module.css';
 
 interface SearchResultProps {
   title: string;
@@ -17,13 +17,13 @@ const SearchResult = ({ title, date, url }: SearchResultProps) => {
   }
 
   return (
-    <div className='search-result' title={title}>
+    <div className={styles.searchResultCls} title={title}>
       <Link
         href={url}
-        className='search-link'
+        className={styles.searchLinkCls}
       >
-        <div className='title'>{processTitle()}</div>
-        <div className='date'>{date}</div>
+        <div className={styles.titleCls}>{processTitle()}</div>
+        <div className={styles.dateCls}>{date}</div>
       </Link>
     </div>
   );

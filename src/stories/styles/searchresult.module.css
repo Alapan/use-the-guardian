@@ -1,4 +1,4 @@
-.search-result {
+.searchResultCls {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -12,31 +12,31 @@
 }
 
 @media (min-width: 768px) {
-  .search-result {
+  .searchResultCls {
     width: 40rem;
     height: 8rem;
   }
 }
 
-.search-link {
+.searchLinkCls {
   display: block;
   text-decoration: none;
   color: black;
   transition: padding-inline-start 0.5s;
 }
 
-.search-link:hover {
+.searchLinkCls:hover {
   padding-inline-start: 1rem;
 }
 
-.title {
+.titleCls {
   text-transform: uppercase;
   font-weight: bold;
   font-size: medium;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-.date {
+.dateCls {
   margin-block-start: 1rem;
   font-family: 'Courier New', Courier, monospace;
 }
