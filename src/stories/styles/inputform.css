@@ -1,13 +1,13 @@
 .input-field {
   display: inline-block;
-  padding-block-start: 1.2%;
-  padding-block-end: 1.2%;
+  padding-block-start: 1.4%;
+  padding-block-end: 1.4%;
   padding-inline-start: 0.5rem;
   border-start-start-radius: 0.5rem;
   border-end-start-radius: 0.5rem;
   border-width: 1px;
   font-size: 1.5rem;
-  width: 30vw;
+  width: 60vw;
 }
 
 .submit-button {
@@ -15,4 +15,12 @@
   border: 0.5rem solid #35a50e;
   border-start-end-radius: 0.5rem;
   border-end-end-radius: 0.5rem;  
+}
+
+@media (min-width: 768px) {
+  .input-field {
+    width: 30vw;
+    padding-block-start: 1.2%;
+    padding-block-end: 1.2%;
+  }
 }
