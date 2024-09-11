@@ -1,7 +1,7 @@
 .inputFieldCls {
   display: inline-block;
-  padding-block-start: 1.4%;
-  padding-block-end: 1.4%;
+  padding-block-start: 0.4rem;
+  padding-block-end: 0.4rem;
   padding-inline-start: 0.5rem;
   border-start-start-radius: 0.5rem;
   border-end-start-radius: 0.5rem;
@@ -20,7 +20,5 @@
 @media (min-width: 768px) {
   .inputFieldCls {
     width: 30vw;
-    padding-block-start: 1.2%;
-    padding-block-end: 1.2%;
   }
 }
