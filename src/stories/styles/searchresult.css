@@ -1,0 +1,46 @@
+.search-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 2px solid goldenrod;
+  border-radius: 6px;
+  padding-inline: 2rem;
+  padding-block: 2rem;
+  width: 24rem;
+  height: 10rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .search-result {
+    width: 40rem;
+    height: 8rem;
+  }
+}
+
+.search-link {
+  display: block;
+  text-decoration: none;
+  color: black;
+  transition: padding-inline-start 0.5s;
+}
+
+.search-link:hover {
+  padding-inline-start: 1rem;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: medium;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.date {
+  margin-block-start: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.title:hover {
+  text-decoration: underline;
+}

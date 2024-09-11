@@ -1,0 +1,18 @@
+.input-field {
+  display: inline-block;
+  padding-block-start: 1.2%;
+  padding-block-end: 1.2%;
+  padding-inline-start: 0.5rem;
+  border-start-start-radius: 0.5rem;
+  border-end-start-radius: 0.5rem;
+  border-width: 1px;
+  font-size: 1.5rem;
+  width: 30vw;
+}
+
+.submit-button {
+  background-color: #35a50e;
+  border: 0.5rem solid #35a50e;
+  border-start-end-radius: 0.5rem;
+  border-end-end-radius: 0.5rem;  
+}
