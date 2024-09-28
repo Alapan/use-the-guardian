@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import styles from './styles/searchresult.module.css';
+import { Months } from '@/app/types';
 
 interface SearchResultProps {
   title: string;
@@ -10,10 +11,15 @@ interface SearchResultProps {
 
 const SearchResult = ({ title, date, url }: SearchResultProps) => {
   const processTitle = () => {
-    if (title.length > 60) {
-      return `${title.substring(0, 59)} ...`;;
+    if (title.length > 80) {
+      return `${title.substring(0, 79)} ...`;;
     }
     return title;
+  }
+
+  const renderDate = () => {
+    const dateObj = new Date(date);
+    return `${Months[dateObj.getMonth()]} ${dateObj.getDate()} ${dateObj.getFullYear()}`
   }
 
   return (
@@ -23,7 +29,7 @@ const SearchResult = ({ title, date, url }: SearchResultProps) => {
         className={styles.searchLinkCls}
       >
         <div className={styles.titleCls}>{processTitle()}</div>
-        <div className={styles.dateCls}>{date}</div>
+        <div className={styles.dateCls}>{renderDate()}</div>
       </Link>
     </div>
   );
