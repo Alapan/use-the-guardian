@@ -14,7 +14,8 @@
   background-color: #35a50e;
   border: 0.5rem solid #35a50e;
   border-start-end-radius: 0.5rem;
-  border-end-end-radius: 0.5rem;  
+  border-end-end-radius: 0.5rem;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {

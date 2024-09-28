@@ -4,6 +4,7 @@
   justify-content: flex-start;
   border: 2px solid goldenrod;
   border-radius: 6px;
+  margin-block: 1rem;
   padding-inline: 2rem;
   padding-block: 2rem;
   width: 24rem;
@@ -13,7 +14,7 @@
 
 @media (min-width: 768px) {
   .searchResultCls {
-    width: 40rem;
+    width: 50rem;
     height: 8rem;
   }
 }
