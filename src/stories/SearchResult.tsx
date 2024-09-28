@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import styles from './styles/searchresult.module.css';
+import styles from './styles/SearchResult.module.css';
 import { Months } from '@/app/types';
 
 interface SearchResultProps {

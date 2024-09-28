@@ -3,7 +3,7 @@
 import Image from 'next/image';
 
 import Search from './assets/search.svg';
-import styles from './styles/inputform.module.css';
+import styles from './styles/InputForm.module.css';
 
 interface InputFormProps {
   onSubmit: (formData: FormData) => void;
