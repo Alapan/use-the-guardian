@@ -6,7 +6,7 @@ import Search from './assets/search.svg';
 import styles from './styles/inputform.module.css';
 
 interface InputFormProps {
-  onSubmit: () => void;
+  onSubmit: (formData: FormData) => void;
 }
 
 const InputForm = ({ onSubmit }: InputFormProps) => {
@@ -16,6 +16,7 @@ const InputForm = ({ onSubmit }: InputFormProps) => {
         type='text'
         placeholder='Enter search text'
         className={styles.inputFieldCls}
+        name='searchTerm'
       />
       <button type={'submit'} className={styles.submitButtonCls}>
         <Image
