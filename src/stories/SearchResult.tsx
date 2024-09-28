@@ -19,7 +19,7 @@ const SearchResult = ({ title, date, url }: SearchResultProps) => {
 
   const renderDate = () => {
     const dateObj = new Date(date);
-    return `${Months[dateObj.getMonth()]} ${dateObj.getDate()} ${dateObj.getFullYear()}`
+    return `${Months[dateObj.getMonth()]} ${dateObj.getDate()} ${dateObj.getFullYear()}`;
   }
 
   return (
