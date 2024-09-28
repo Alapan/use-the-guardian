@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent, within } from '@storybook/test';
 import InputForm from './InputForm';
 
-const meta = {
+const meta: Meta<typeof InputForm> = {
   title: 'Components/InputForm',
   component: InputForm,
   tags: ['autodocs'],
@@ -12,7 +12,7 @@ const meta = {
   args: {
     onSubmit: fn()
   }
-} satisfies Meta<typeof InputForm>;
+};
 
 export default meta;
 

@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import SearchResult from './SearchResult';
 
-const meta = {
+const meta: Meta <typeof SearchResult> = {
   title: 'Components/SearchResult',
   component: SearchResult,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],  
-} satisfies Meta <typeof SearchResult>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
