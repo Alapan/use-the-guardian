@@ -1,22 +1,22 @@
 'use client';
 
-import { MouseEventHandler, useState } from 'react';
+import { MouseEventHandler } from 'react';
 import styles from './styles/PageNumber.module.css';
 
 interface PageNumberProps {
   pageNumber: number;
-  fetchArticles: (pageNumber: number) => void;
+  handlePageNumberClick: (pageNumber: number) => void;
+  isClicked: boolean;
 }
 
 const PageNumber = ({
   pageNumber,
-  fetchArticles,
+  handlePageNumberClick,
+  isClicked,
 }: PageNumberProps) => {
-  const [ isClicked, setIsClicked ] = useState<boolean>(false);
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {
-    setIsClicked(true);
-    fetchArticles(pageNumber);
+    handlePageNumberClick(pageNumber);
   };
 
   const cls = isClicked ? `${styles.pageNumber} ${styles.selected}` : `${styles.pageNumber}`;
