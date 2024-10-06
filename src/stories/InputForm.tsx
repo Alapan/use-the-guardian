@@ -13,10 +13,10 @@ const InputForm = ({ onSubmit }: InputFormProps) => {
   return (
     <form action={onSubmit}>
       <input
-        type='text'
-        placeholder='Enter search text'
+        type="text"
+        placeholder="Enter search text"
         className={styles.inputFieldCls}
-        name='searchTerm'
+        name="searchTerm"
       />
       <button type={'submit'} className={styles.submitButtonCls}>
         <Image

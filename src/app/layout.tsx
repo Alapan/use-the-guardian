@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Filter Guardian information",
-  description: "Fetch and filter articles, tags, sections using Guardian API",
+  title: 'Filter Guardian information',
+  description: 'Fetch and filter articles, tags, sections using Guardian API',
 };
 
 export default function RootLayout({

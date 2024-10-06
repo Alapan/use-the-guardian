@@ -31,4 +31,4 @@ export interface Article {
   isHosted: boolean;
   pillarId: string;
   pillarName: string;
-};
+}

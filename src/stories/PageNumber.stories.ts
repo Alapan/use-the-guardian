@@ -10,8 +10,8 @@ const meta: Meta<typeof PageNumber> = {
     layout: 'centered',
   },
   args: {
-    handlePageNumberClick: fn()
-  }
+    handlePageNumberClick: fn(),
+  },
 };
 
 export default meta;

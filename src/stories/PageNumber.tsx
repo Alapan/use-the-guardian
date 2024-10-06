@@ -14,12 +14,13 @@ const PageNumber = ({
   handlePageNumberClick,
   isClicked,
 }: PageNumberProps) => {
-
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {
     handlePageNumberClick(pageNumber);
   };
 
-  const cls = isClicked ? `${styles.pageNumber} ${styles.selected}` : `${styles.pageNumber}`;
+  const cls = isClicked
+    ? `${styles.pageNumber} ${styles.selected}`
+    : `${styles.pageNumber}`;
   return (
     <button
       className={cls}

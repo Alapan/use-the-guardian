@@ -7,10 +7,10 @@ const meta: Meta<typeof PaginationRow> = {
   component: PaginationRow,
   tags: ['autodocs'],
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   args: {
-    fetchArticles: fn()
+    fetchArticles: fn(),
   },
 };
 
@@ -21,11 +21,11 @@ type Story = StoryObj<typeof meta>;
 export const RowWithThreePages: Story = {
   args: {
     numberOfPages: 3,
-  }
-}
+  },
+};
 
 export const RowWithMoreThanThreePages: Story = {
   args: {
     numberOfPages: 100,
-  }
-}
+  },
+};
