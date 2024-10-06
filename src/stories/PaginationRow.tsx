@@ -17,7 +17,7 @@ const PaginationRow = ({ numberOfPages, fetchArticles }: PaginationRowProps) => 
     fetchArticles(pageNumber);
   };
 
-  const getPageNumbersToDisplayArray = () : number[] => {
+  const getPageNumbersToDisplay = () : number[] => {
     let pageNumbersToDisplay: number[] = [];
     if (numberOfPages <= 3) {
       pageNumbersToDisplay = allPageNumbers;
@@ -30,7 +30,7 @@ const PaginationRow = ({ numberOfPages, fetchArticles }: PaginationRowProps) => 
     } else if (currentPage >= 2 && currentPage <= 4) {
       // 1, 2, 3, 4, 5 ... 10 => currentPage = 3
       pageNumbersToDisplay = [...allPageNumbers.slice(0, currentPage + 2), -1, numberOfPages];
-    } else if (currentPage < numberOfPages && currentPage >= numberOfPages - 3) {
+    } else if (currentPage >= numberOfPages - 3 && currentPage < numberOfPages) {
       // 1 ... 5, 6, 7, 8, 9, 10 => currentPage = 7
       pageNumbersToDisplay = [1, -1, ...allPageNumbers.slice(currentPage - 3)];
     } else {
@@ -42,7 +42,7 @@ const PaginationRow = ({ numberOfPages, fetchArticles }: PaginationRowProps) => 
 
   return (
     <div className={styles.paginationRow}>
-      {getPageNumbersToDisplayArray().map((pageNumber: number) => {
+      {getPageNumbersToDisplay().map((pageNumber: number) => {
         if (pageNumber < 0) return <Fragment key={pageNumber}>...</Fragment>
         return (
           <PageNumber
