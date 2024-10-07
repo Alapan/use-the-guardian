@@ -1,10 +1,14 @@
 'use server';
 
 export const getArticlesBySearchTerm = async (
-  searchTerm: FormDataEntryValue
+  searchStr: string,
+  page: number,
 ) => {
-  const url = `${process.env.GUARDIAN_BASE_URL}q=${searchTerm}&api-key=${process.env.API_KEY}`;
+  console.log('SEARCH STR: ', searchStr)
+  const url = `${process.env.GUARDIAN_BASE_URL}page=${page}&q=${searchStr}&api-key=${process.env.API_KEY}`;
+  console.log('URL: ', url)
   const response = await fetch(url);
-  const { results } = (await response.json()).response;
-  return results;
+  const json = await response.json();
+  console.log('JSON: ', json)
+  return json.response;
 };
