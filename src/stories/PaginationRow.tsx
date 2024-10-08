@@ -34,7 +34,11 @@ const PaginationRow = ({ pageCount, onClick }: PaginationRowProps) => {
       ];
     } else if (currentPage === pageCount) {
       // 1 ... 8, 9, 10
-      pageNumbersToDisplay = [1, REPLACEABLE_BY_DOTS[0], ...allPageNumbers.slice(pageCount - 3)];
+      pageNumbersToDisplay = [
+        1,
+        REPLACEABLE_BY_DOTS[0],
+        ...allPageNumbers.slice(pageCount - 3),
+      ];
     } else if (currentPage >= 2 && currentPage <= 4) {
       // 1, 2, 3, 4, 5 ... 10 => currentPage = 3
       pageNumbersToDisplay = [
@@ -44,7 +48,11 @@ const PaginationRow = ({ pageCount, onClick }: PaginationRowProps) => {
       ];
     } else if (currentPage >= pageCount - 3 && currentPage < pageCount) {
       // 1 ... 5, 6, 7, 8, 9, 10 => currentPage = 7
-      pageNumbersToDisplay = [1, REPLACEABLE_BY_DOTS[0], ...allPageNumbers.slice(currentPage - 3)];
+      pageNumbersToDisplay = [
+        1,
+        REPLACEABLE_BY_DOTS[0],
+        ...allPageNumbers.slice(currentPage - 3),
+      ];
     } else {
       // 1 ... 3, 4, 5, 6, 7, ... 10 => currentPage = 5
       pageNumbersToDisplay = [
@@ -61,7 +69,8 @@ const PaginationRow = ({ pageCount, onClick }: PaginationRowProps) => {
   return (
     <div className={styles.paginationRow}>
       {getPageNumbersToDisplay().map((pageNumber: number) => {
-        if (REPLACEABLE_BY_DOTS.includes(pageNumber)) return <Fragment key={pageNumber}>...</Fragment>;
+        if (REPLACEABLE_BY_DOTS.includes(pageNumber))
+          return <Fragment key={pageNumber}>...</Fragment>;
         return (
           <PageNumber
             key={pageNumber}

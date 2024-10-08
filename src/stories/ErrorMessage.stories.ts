@@ -22,6 +22,7 @@ export const DefaultMessage: Story = {
 
 export const VeryLongMessage: Story = {
   args: {
-    message: 'This is a very long error message! The main reason this is here is to check that it renders normally on the page and not in a wonky way.'
+    message:
+      'This is a very long error message! The main reason this is here is to check that it renders normally on the page and not in a wonky way.',
   },
 };
