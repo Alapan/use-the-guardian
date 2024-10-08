@@ -1,45 +1,95 @@
 'use client';
 
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import InputForm from '@/stories/InputForm';
 import SearchResult from '@/stories/SearchResult';
 import { getArticlesBySearchTerm } from './actions';
 import { Article } from './types';
+import PaginationRow from '@/stories/PaginationRow';
+import ErrorMessage from '@/stories/ErrorMessage';
 import styles from './page.module.css';
 
-export default function Home() {
-  const [results, setResults] = useState<Article[]>([]);
+interface ResultState {
+  results: Article[];
+  pages: number;
+  status: string;
+  message: string;
+}
 
-  const onSubmit = async (formData: FormData) => {
-    const searchTerm = formData.get('searchTerm');
-    if (searchTerm) {
-      const articles = await getArticlesBySearchTerm(searchTerm);
-      setResults(
-        [...articles].sort(
-          (a1, a2) =>
-            new Date(a2.webPublicationDate).valueOf() -
-            new Date(a1.webPublicationDate).valueOf()
-        )
+export default function Home() {
+  const [searchString, setSearchString] = useState('');
+  const [resultState, setResultState] = useState<ResultState>({
+    results: [],
+    pages: 0,
+    status: '',
+    message: '',
+  });
+
+  const updateSearchString = (event: FormEvent<HTMLInputElement>) => {
+    setSearchString(event.currentTarget.value);
+  };
+
+  const handleApiCall = async (pageNumber: number = 1) => {
+    if (searchString) {
+      const { results, status, pages, message } = await getArticlesBySearchTerm(
+        searchString,
+        pageNumber
+      );
+      setResultState({
+        results,
+        status,
+        pages,
+        message,
+      });
+    }
+  };
+
+  const renderResults = () => {
+    if (resultState.results.length) {
+      return (
+        <section className={styles.results}>
+          <PaginationRow
+            pageCount={resultState.pages}
+            onClick={async (pageNumber: number) =>
+              await handleApiCall(pageNumber)
+            }
+          />
+          {resultState.results.map(
+            ({ id, webTitle, webPublicationDate, webUrl }) => (
+              <SearchResult
+                key={id}
+                title={webTitle}
+                date={webPublicationDate}
+                url={webUrl}
+              />
+            )
+          )}
+        </section>
+      );
+    } else {
+      return (
+        <ErrorMessage message="No results found! Try a different search value." />
       );
     }
+  };
+
+  const renderError = () => {
+    if (resultState.status === 'error') {
+      return <ErrorMessage message={resultState.message} />;
+    }
+    return null;
   };
 
   return (
     <main>
       <section className={styles.formContainer}>
-        <InputForm onSubmit={onSubmit} />
+        <InputForm
+          handleApiCall={handleApiCall}
+          value={searchString}
+          onChange={updateSearchString}
+        />
       </section>
-      <section className={styles.results}>
-        {results.length > 1 &&
-          results.map(({ id, webTitle, webPublicationDate, webUrl }) => (
-            <SearchResult
-              key={id}
-              title={webTitle}
-              date={webPublicationDate}
-              url={webUrl}
-            />
-          ))}
-      </section>
+      {resultState.status === 'ok' ? renderResults() : renderError()}
     </main>
   );
 }

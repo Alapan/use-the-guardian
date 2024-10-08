@@ -10,7 +10,8 @@ const meta: Meta<typeof InputForm> = {
     layout: 'centered',
   },
   args: {
-    onSubmit: fn(),
+    handleApiCall: fn(),
+    onChange: fn(),
   },
 };
 
@@ -19,13 +20,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const NormalForm: Story = {
+  args: {
+    value: 'test',
+  },
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement);
     await userEvent.type(
       canvas.getByPlaceholderText('Enter search text'),
       'Sport'
     );
+    await expect(args.onChange).toHaveBeenCalled();
     await userEvent.click(canvas.getByRole('button'));
-    await expect(args.onSubmit).toHaveBeenCalled();
+    await expect(args.handleApiCall).toHaveBeenCalled();
   },
 };
