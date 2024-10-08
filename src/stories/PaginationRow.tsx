@@ -19,6 +19,8 @@ const PaginationRow = ({ pageCount, onClick }: PaginationRowProps) => {
     onClick(pageNumber);
   };
 
+  const REPLACEABLE_BY_DOTS = [-1, -2];
+
   const getPageNumbersToDisplay = (): number[] => {
     let pageNumbersToDisplay: number[] = [];
     if (pageCount <= 3) {
@@ -27,29 +29,29 @@ const PaginationRow = ({ pageCount, onClick }: PaginationRowProps) => {
       // 1, 2, 3, ... 10
       pageNumbersToDisplay = [
         ...allPageNumbers.slice(0, 3),
-        -1,
+        REPLACEABLE_BY_DOTS[0],
         allPageNumbers[pageCount - 1],
       ];
     } else if (currentPage === pageCount) {
       // 1 ... 8, 9, 10
-      pageNumbersToDisplay = [1, -1, ...allPageNumbers.slice(pageCount - 3)];
+      pageNumbersToDisplay = [1, REPLACEABLE_BY_DOTS[0], ...allPageNumbers.slice(pageCount - 3)];
     } else if (currentPage >= 2 && currentPage <= 4) {
       // 1, 2, 3, 4, 5 ... 10 => currentPage = 3
       pageNumbersToDisplay = [
         ...allPageNumbers.slice(0, currentPage + 2),
-        -1,
+        REPLACEABLE_BY_DOTS[0],
         pageCount,
       ];
     } else if (currentPage >= pageCount - 3 && currentPage < pageCount) {
       // 1 ... 5, 6, 7, 8, 9, 10 => currentPage = 7
-      pageNumbersToDisplay = [1, -1, ...allPageNumbers.slice(currentPage - 3)];
+      pageNumbersToDisplay = [1, REPLACEABLE_BY_DOTS[0], ...allPageNumbers.slice(currentPage - 3)];
     } else {
       // 1 ... 3, 4, 5, 6, 7, ... 10 => currentPage = 5
       pageNumbersToDisplay = [
         1,
-        -1,
+        REPLACEABLE_BY_DOTS[0],
         ...allPageNumbers.slice(currentPage - 3, currentPage + 2),
-        -2,
+        REPLACEABLE_BY_DOTS[1],
         pageCount,
       ];
     }
@@ -59,7 +61,7 @@ const PaginationRow = ({ pageCount, onClick }: PaginationRowProps) => {
   return (
     <div className={styles.paginationRow}>
       {getPageNumbersToDisplay().map((pageNumber: number) => {
-        if (pageNumber < 0) return <Fragment key={pageNumber}>...</Fragment>;
+        if (REPLACEABLE_BY_DOTS.includes(pageNumber)) return <Fragment key={pageNumber}>...</Fragment>;
         return (
           <PageNumber
             key={pageNumber}
