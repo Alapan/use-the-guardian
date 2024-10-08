@@ -10,7 +10,7 @@ const meta: Meta<typeof PaginationRow> = {
     layout: 'centered',
   },
   args: {
-    fetchArticles: fn(),
+    onClick: fn(),
   },
 };
 
@@ -20,12 +20,12 @@ type Story = StoryObj<typeof meta>;
 
 export const RowWithThreePages: Story = {
   args: {
-    numberOfPages: 3,
+    pageCount: 3,
   },
 };
 
 export const RowWithMoreThanThreePages: Story = {
   args: {
-    numberOfPages: 100,
+    pageCount: 100,
   },
 };

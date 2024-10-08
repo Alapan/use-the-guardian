@@ -1,13 +1,14 @@
 .pageNumber {
   border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: white;
   border: 2px solid black;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.7rem;
 }
 
 .selected {
