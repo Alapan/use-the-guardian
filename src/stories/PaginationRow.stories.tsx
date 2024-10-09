@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import PaginationRow from './PaginationRow';
+import PaginationRow from '@/app/components/PaginationRow';
 import { fn } from '@storybook/test';
 
 const meta: Meta<typeof PaginationRow> = {
