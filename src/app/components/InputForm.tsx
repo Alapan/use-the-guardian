@@ -20,10 +20,7 @@ const InputForm = ({ handleApiCall, value, onChange }: InputFormProps) => {
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        onSubmit(e);
-      }}
+      onSubmit={onSubmit}
     >
       <input
         type="text"
