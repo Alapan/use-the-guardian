@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent, within } from '@storybook/test';
-import InputForm from './InputForm';
+import InputForm from '@/app/components/InputForm';
 
 const meta: Meta<typeof InputForm> = {
   title: 'Components/InputForm',

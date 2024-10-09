@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent, within } from '@storybook/test';
-import PageNumber from './PageNumber';
+import PageNumber from '@/app/components/PageNumber';
 
 const meta: Meta<typeof PageNumber> = {
   title: 'Components/PageNumber',

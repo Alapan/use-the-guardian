@@ -1,4 +1,4 @@
-import ErrorMessage from './ErrorMessage';
+import ErrorMessage from '@/app/components/ErrorMessage';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ErrorMessage> = {

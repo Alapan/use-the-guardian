@@ -1,12 +1,12 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-import InputForm from '@/stories/InputForm';
-import SearchResult from '@/stories/SearchResult';
+import InputForm from './components/InputForm';
+import SearchResult from './components/SearchResult';
 import { getArticlesBySearchTerm } from './actions';
 import { Article } from './types';
-import PaginationRow from '@/stories/PaginationRow';
-import ErrorMessage from '@/stories/ErrorMessage';
+import PaginationRow from './components/PaginationRow';
+import ErrorMessage from './components/ErrorMessage';
 import styles from './page.module.css';
 
 interface ResultState {
